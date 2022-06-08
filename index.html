@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Which social class are you in the English's eyes?</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+</head>
+
+<style>
+    img {
+        border-radius: 8px;
+        height: 400px;
+        width: 500px;
+    }
+    /*code from: https://stackoverflow.com/questions/18389224/how-to-style-html5-range-input-to-have-different-color-before-and-after-slider */
+    
+    .slidecontainer {
+        width: 100%;
+    }
+    
+    .slider {
+        -webkit-appearance: none;
+        background-color: #d3b1ad;
+        height: 25px;
+        overflow: hidden;
+        width: 400px;
+    }
+    
+    .slider::-webkit-slider-runnable-track {
+        -webkit-appearance: none;
+        height: 20px;
+    }
+    
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        background: #f0ebeb;
+        box-shadow: -200px 0 0 200px #f0ebeb;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border: 0;
+    }
+</style>
+
+<body>
+
+    <script src="index.js" defer></script>
+
+    <section class="section">
+        <section class="hero is-primary">
+            <div class="hero-body">
+                <h1 class="title">
+                    Which social class are you in the English's eyes?
+                </h1>
+
+                <p class="subtitle">
+                    Questions based on the book <a href="https://www.goodreads.com/book/show/288448.Watching_the_English"><u>Watching the English</u></a> written by <i>Kate Fox</i>
+                </p>
+            </div>
+        </section>
+
+        <div class="box">
+            <form class="column">
+
+                <div class="test">
+
+                    <p>Feel free to skip questions that doesn't apply to you (for example, the car questions if you don't drive), but try to answer as much as you can for a more accurate result!</p>
+                    <br>
+
+                    <div class="field">
+                        <label class="label">Your name:</label>
+                        <input id="entername" class="input" type="text" size="10" value="Johnny English">
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">How do you respond when someone greets you with 'How do you do?'</label>
+                        <input id="howdoyoudo" class="input" type="text" size="10" placeholder="Type your response here!">
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">What do you say when you want the other person to clarify?</label>
+
+                        <label class="radio">
+                        <input type="radio" value ="what" name="pardon">
+                        "What?"
+                      </label>
+                        <label class="radio">
+                        <input type="radio"  value ="sorry"  name="pardon">
+                        "Sorry?"
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="sorry"  name="pardon">
+                        "Sorry-what?"
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="pardon"  name="pardon">
+                        "Pardon?"
+                      </label>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">You call the meal you have in the evening:</label>
+
+                        <label class="radio">
+                        <input type="radio" value ="dinner" name="dinner">
+                        Dinner
+                      </label>
+                        <label class="radio">
+                        <input type="radio"  value ="supper"  name="dinner">
+                        Supper
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="tea"  name="dinner">
+                        Tea
+                      </label>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">The sweet course at the end of your meal is: </label>
+
+                        <label class="radio">
+                        <input type="radio" value ="afters" name="pudding">
+                            Afters
+                       </label>
+                        <label class="radio">
+                        <input type="radio" value ="dessert" name="pudding">
+                        Dessert
+                      </label>
+                        <label class="radio">
+                        <input type="radio"  value ="pudding"  name="pudding">
+                        Pudding
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="sweet"  name="pudding">
+                        Sweet
+                      </label>
+
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">You call your parents:</label>
+
+                        <label class="radio">
+                        <input type="radio" value ="mumdad" name="mumdad">
+                        Mum/Dad
+                      </label>
+                        <label class="radio">
+                        <input type="radio"  value ="mummydaddy"  name="mumdad">
+                        Mummy/Daddy
+                      </label>
+
+
+                    </div>
+
+
+
+
+
+                    <div class="field">
+                        <label class="label">Car of choice</label>
+
+                        <div class="select">
+                            <select id="car">
+                          <option>Choose one from below:</option>
+                          <option>Audi</option>
+                          <option>Ford Mondeo</option>                          
+                          <option>Mercedes-Benz</option>
+                          <option>Mini</option>
+                          <option>Subaru</option>                          
+                          <option>Toyota</option>                          
+                          <option>Volkswagen</option>
+                        </select>
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label class="label">How do you wash your car?</label>
+
+                        <label class="radio">
+                        <input type="radio" value ="rain" name="carwash">
+                        With rain
+                      </label>
+                        <label class="radio">
+                        <input type="radio"  value ="myself"  name="carwash">
+                        By myself
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="carwash"  name="carwash">
+                        At car-wash
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="hire"  name="carwash">
+                        My houseworker
+                      </label>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">Do you decorate your car with figures and plushies?</label>
+                        <img style="object-fit:cover" src="images/cardeco.jpg" /><br>
+                        <label class="radio">
+                      <input type="radio" value ="y" name="cardeco">
+                      Yes
+                    </label>
+                        <label class="radio">
+                      <input type="radio"  value ="n"  name="cardeco">
+                      No
+                    </label>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">How do you call this?</label>
+                        <img style="object-fit:cover" src="images/wc.jpg" /><br>
+
+                        <input type="checkbox" name="wc" value="bathroom"> Bathroom
+                        <input type="checkbox" name="wc" value="lavatory"> Lavatory
+                        <input type="checkbox" name="wc" value="restroom"> Restroom
+                        <input type="checkbox" name="wc" value="toilet"> Toilet
+
+                        </label>
+
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">This is a:</label>
+                        <img style="object-fit:cover" src="images/sitting_room.jpg" /><br>
+
+                        <label class="radio">
+                            <input type="radio" value ="living" name="sitting">
+                            Living room
+                          </label>
+                        <label class="radio">
+                            <input type="radio"  value ="lounge"  name="sitting">
+                            Lounge
+                          </label>
+                        <label class="radio">
+                            <input type="radio" value ="sitting"  name="sitting">
+                            Sitting room
+                          </label>
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Does your room have net curtains?</label>
+                        <img style="object-fit:cover" src="images/net_curtain.JPG" /><br>
+                        <label class="radio">
+                        <input type="radio"  value ="y" name="net">
+                        Yes
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="n" name="net">
+                        No
+                      </label>
+
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Do you use coasters for your drinks at home?</label>
+                        <img style="object-fit:cover" src="images/coasters.jpg" /><br>
+                        <label class="radio">
+                        <input type="radio"  value ="y" name="ikea">
+                        Yes
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="n" name="ikea">
+                        No
+                      </label>
+
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Do you like these room designs?</label>
+                        <img style="object-fit:cover" src="images/ikea.jpg" /><br>
+                        <label class="radio">
+                        <input type="radio"  value ="y" name="coaster">
+                        Yes
+                      </label>
+                        <label class="radio">
+                        <input type="radio" value ="n" name="coaster">
+                        No
+                      </label>
+
+                    </div>
+
+
+
+                    <div class="field">
+                        <label class="label">Which garden design do you prefer?</label>
+                        <img style="object-fit:cover" src="images/garden_coluorful.jpg" />
+                        <img style="object-fit:cover" src="images/garden_muted.jpg" /><br>
+                        <label class="radio">
+                      <input type="radio"  value ="colourful" name="garden">
+                      The first one
+                    </label>
+                        <label class="radio">
+                      <input type="radio" value ="muted" name="garden">
+                      The second one
+                    </label>
+
+                    </div>
+
+
+
+
+
+
+
+                    <div class="field">
+                        <label class="label">Where do you shop at for your daily needs?</label>
+                        <input type="checkbox" name="shopping" value="aldi"> Aldi
+                        <input type="checkbox" name="shopping" value="charity"> Charity shops
+                        <input type="checkbox" name="shopping" value="lidl"> Lidl
+                        <input type="checkbox" name="shopping" value="ms"> Marks & Spencer
+                        <input type="checkbox" name="shopping" value="sainsburys"> Sainsbury’s
+                        <input type="checkbox" name="shopping" value="tesco"> Tesco
+                        <input type="checkbox" name="shopping" value="waitrose"> Waitrose
+
+                        </label>
+
+                    </div>
+
+                    <div class="field">
+                        <div class="slidecontainer">
+                            <label class="label">How many spoons of sugar you add to your tea: </label>
+                            <input type="range" min="0" max="5" value="0" class="slider" id="myRange">
+                            <p><b><span id="output"></b></span> spoon(s) of sugar</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">You like your jams:</label>
+                        <label class="radio">
+                      <input type="radio"  value ="thick" name="jam">
+                      Thick with chunky fruit lumps
+                    </label>
+                        <label class="radio">
+                      <input type="radio" value ="thin" name="jam">
+                      Thin and smooth
+                    </label>
+
+                    </div>
+
+
+                    <div class="field">
+                        <label class="label">How do you eat bread with jam?</label>
+                        <label class="radio">
+                    <input type="radio"  value ="spread" name="sloweat">
+                    Spread the jam on bread and eat in one go
+                  </label>
+                        <label class="radio">
+                    <input type="radio" value ="bitesize" name="sloweat">
+                    Break the bread into bite-size pieces and spread jam onto it
+                  </label>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="field is-grouped">
+
+                        <button id="submitname" type="submit" class="button is-link">Submit</button>
+
+
+                        <button type="reset" class="button is-link is-light">Reset</button>
+
+
+                    </div>
+
+
+
+                </div>
+            </form>
+
+
+
+
+
+            <div class="result">
+
+                <p>Here's what the English will assume <b><span class="yourname">your</span></b>'s social class to be:</p>
+                <br>
+
+                <div class="notification is-warning">
+                    <p><b><span class="yourclass"></span></b> class</p>
+                </div>
+
+                <p><b>Disclaimer:</b> Do note that the book was published in <i>2015</i> and the analysis are probably not the most accurate! </p>
+                <br>
+                <button id="reset" class="button is-link" type="reset" value="Forget">Redo the test!</button>
+            </div>
+
+
+        </div>
+
+
+
+
+    </section>
+
+
+</body>
+
+</html>
